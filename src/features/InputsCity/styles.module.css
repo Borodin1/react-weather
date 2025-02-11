@@ -1,0 +1,37 @@
+.inputs-city {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+}
+
+.inputs-city input {
+  font-weight: 300;
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+}
+
+.inputs-city input::placeholder {
+  color: rgb(107 114 128, 1);
+}
+
+.inputs-city input:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.icon {
+  cursor: pointer;
+  margin-left: 16px;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease-out;
+}
+
+.icon:hover {
+  transform: scale(1.25);
+}

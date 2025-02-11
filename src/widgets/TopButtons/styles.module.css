@@ -1,0 +1,23 @@
+.top-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.top-buttons button {
+  cursor: pointer;
+  padding: 8px 12px 8px 12px;
+  border-radius: 10px;
+  border: none;
+  transition: background-color 0.3s ease-in; /* плавный переход */
+  background: transparent;
+
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.top-buttons button:hover {
+  background-color: rgba(55, 65, 81, 0.2);
+}

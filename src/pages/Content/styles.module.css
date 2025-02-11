@@ -1,0 +1,7 @@
+.content {
+  background: linear-gradient(to right, #06b6d4, #1d4ed8);
+  background-image: linear-gradient(to bottom right, #06b6d4, #1d4ed8);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  margin: 40px 120px 40px 120px;
+  padding: 20px 224px 48px 224px;
+}

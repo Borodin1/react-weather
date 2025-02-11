@@ -1,0 +1,24 @@
+.temp-city {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.temp-city span {
+  margin: 0 4px;
+  font-weight: 500;
+}
+
+.temp-city button {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
+}
+
+.temp-city button:hover {
+  transform: scale(1.25);
+}

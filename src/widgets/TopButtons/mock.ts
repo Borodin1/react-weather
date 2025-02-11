@@ -1,0 +1,1 @@
+export const mock = ['London', 'Sydney', 'Tokyo', 'Paris'] as const
