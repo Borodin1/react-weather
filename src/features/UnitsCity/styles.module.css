@@ -1,16 +1,16 @@
-.temp-city {
+.units-city {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 25%;
 }
 
-.temp-city span {
+.units-city span {
   margin: 0 4px;
   font-weight: 500;
 }
 
-.temp-city button {
+.units-city button {
   background-color: transparent;
   border: none;
   font-size: 24px;
@@ -19,6 +19,6 @@
   transition: transform 0.3s ease-out;
 }
 
-.temp-city button:hover {
+.units-city button:hover {
   transform: scale(1.25);
 }
