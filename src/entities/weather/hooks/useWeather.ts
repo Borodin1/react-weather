@@ -15,6 +15,7 @@ export const useWeather = () => {
 
   return {
     weather,
-    time
+    time,
+    dispatch
   };
 };
