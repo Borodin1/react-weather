@@ -1,7 +1,7 @@
 export function getFormattedDateFromTimezone(timezoneOffset: number): string {
-  if (timezoneOffset) {
+  if (timezoneOffset !== undefined && timezoneOffset !== null) {
     const utcDate = new Date();
-    const localTime = new Date(utcDate.getTime() + timezoneOffset * 1000);
+    const localTime = new Date(utcDate.getTime() + timezoneOffset * 60000);
 
     const dayOfWeek = localTime.toLocaleString("en-US", { weekday: "long" });
     const day = localTime.toLocaleString("en-US", { day: "2-digit" });
@@ -16,4 +16,14 @@ export function getFormattedDateFromTimezone(timezoneOffset: number): string {
     return `${dayOfWeek}, ${day} ${month} ${year} | Local time: ${time}`;
   }
   return '';
+}
+
+export function getFormattedDateFromDt(dt:number):string{
+    const date = new Date(dt * 1000);
+  
+    return date.toLocaleString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
 }

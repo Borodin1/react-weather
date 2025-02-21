@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IWeatherState } from "./types";
-import { fetchWeather } from "../api";
+import { fetchForecastWeather, fetchWeather } from "../api";
 
 const initialState: IWeatherState = {
   city: "Odessa,UA",
   units: "metric",
   weather: null,
+  forecastWeather: null,
   isLoading: false,
   isError: false,
 };
@@ -34,6 +35,21 @@ export const weatherSlice = createSlice({
     builder.addCase(fetchWeather.rejected, (state) => {
       state.isLoading = false;
       state.isError = true;
+    });
+
+    //forecastWeather
+    builder.addCase(fetchForecastWeather.pending, (state) => {
+      state.isLoading = true;
+      state.isError = false;
+    });
+    builder.addCase(fetchForecastWeather.fulfilled, (state, { payload }) => {
+      state.forecastWeather = payload;
+      state.isLoading = false;
+      state.isError = false;
+    });
+    builder.addCase(fetchForecastWeather.rejected, (state) => {
+      state.isError = true;
+      state.isLoading = false;
     });
   },
 });

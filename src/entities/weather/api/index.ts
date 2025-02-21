@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { IWeather } from '../model/types';
+import { IForecastWeather, IWeather } from '../model/types';
 import axios, { isAxiosError } from 'axios';
 
 interface IFetchWeather{
@@ -25,4 +25,21 @@ export const fetchWeather = createAsyncThunk<IWeather,IFetchWeather,{rejectValue
             }
         }
     }
+)
+
+export const fetchForecastWeather = createAsyncThunk<IForecastWeather,IFetchWeather,{rejectValue:{message:string}}>(
+    'weather/fetchForecastWeather',
+    async({city,units}:IFetchWeather,{rejectWithValue})=>{
+        try {
+            const response = await axios.get(`${API_URL}/forecast?q=${city}&appid=${API_KEY}&units=${units}`);
+            return response.data.list.slice(0,5);
+        } catch (error) {
+            if (isAxiosError(error)) {
+                return rejectWithValue({message: error.message});
+            } else {
+                return rejectWithValue({message: 'An unknown error occurred'});
+            }
+        }
+
+    }    
 )
