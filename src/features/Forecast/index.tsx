@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.module.css'
 import { IForecastWeather } from '../../entities/weather/model/types'
-import { getFormattedDateFromDt, getFormattedDateFromTimezone } from '../../shared/lib/formattedDate'
+import { getFormattedDateFromDt } from '../../shared/lib/formattedDate'
 
 interface IForecast{
     title:string
