@@ -22,3 +22,9 @@
 .units-city button:hover {
   transform: scale(1.25);
 }
+
+@media (min-width: 768px) {
+  .units-city {
+    width: 25%;
+  }
+}

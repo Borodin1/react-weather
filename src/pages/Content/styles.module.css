@@ -2,6 +2,35 @@
   background: linear-gradient(to right, #06b6d4, #1d4ed8);
   background-image: linear-gradient(to bottom right, #06b6d4, #1d4ed8);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  margin: 40px 120px 40px 120px;
-  padding: 20px 224px 48px 224px;
+  padding: 20px 56px 48px 56px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.content-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  font-weight: 300;
+  color: rgb(255 255 255 / 0.7);
+  text-align: center;
+  padding-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    width: 52%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content {
+    padding-left: 224px;
+    padding-right: 224px;
+  }
 }

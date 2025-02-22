@@ -11,6 +11,8 @@
 .details-weather {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .details-weather img {
@@ -18,7 +20,7 @@
 }
 
 .details-weather p {
-  font-size: 48px;
+  font-size: 30px;
   margin-bottom: 40px;
 }
 
@@ -70,13 +72,11 @@
 
 @media (min-width: 768px) {
   .details {
-    margin: 24px 0px;
+    padding: 24px 0px;
     font-size: 20px;
   }
   .details-weather {
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     padding: 24px 0px;
   }
   .details-weather img {

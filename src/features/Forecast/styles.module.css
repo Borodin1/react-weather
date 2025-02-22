@@ -5,6 +5,11 @@
   margin-top: 24px;
 }
 
+.forecast-title p {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
 hr {
   margin: 4px 0px;
 }
