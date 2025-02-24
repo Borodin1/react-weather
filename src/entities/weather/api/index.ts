@@ -5,41 +5,29 @@ import axios, { isAxiosError } from 'axios';
 interface IFetchWeather{
     city:string,
     units:'metric'| 'imperial'
+    type:'weather' | 'forecast'
 }
 
 const API_URL = import.meta.env.VITE_API_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-export const fetchWeather = createAsyncThunk<IWeather,IFetchWeather,{rejectValue:{message:string}}>(
-    'weather/fetchWeather',
-    async({city,units}:IFetchWeather,{rejectWithValue})=>{
+export const fetchWeatherData = createAsyncThunk<
+    IWeather | { list: IForecastWeather[] },
+    IFetchWeather,
+    { rejectValue: { message: string } }
+>(
+    'weather/fetchWeatherData',
+    async ({ city, units, type }, { rejectWithValue }) => {
         try {
-            const response = await axios.get<IWeather>(`${API_URL}/weather?q=${city}&appid=${API_KEY}&units=${units}`)
-    
-            return response.data;
+            const response = await axios.get(`${API_URL}/${type}?q=${city}&appid=${API_KEY}&units=${units}`);
+
+            return type === 'forecast' ? { list: response.data.list } : response.data;
         } catch (error) {
             if (isAxiosError(error)) {
-                return rejectWithValue({message: error.message});
+                return rejectWithValue({ message: error.message });
             } else {
-                return rejectWithValue({message: 'An unknown error occurred'});
+                return rejectWithValue({ message: 'An unknown error occurred' });
             }
         }
     }
-)
-
-export const fetchForecastWeather = createAsyncThunk<IForecastWeather,IFetchWeather,{rejectValue:{message:string}}>(
-    'weather/fetchForecastWeather',
-    async({city,units}:IFetchWeather,{rejectWithValue})=>{
-        try {
-            const response = await axios.get(`${API_URL}/forecast?q=${city}&appid=${API_KEY}&units=${units}`);
-            return response.data.list.slice(0,5);
-        } catch (error) {
-            if (isAxiosError(error)) {
-                return rejectWithValue({message: error.message});
-            } else {
-                return rejectWithValue({message: 'An unknown error occurred'});
-            }
-        }
-
-    }    
-)
+);

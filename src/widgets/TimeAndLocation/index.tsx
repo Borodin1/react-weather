@@ -1,8 +1,9 @@
 import React from "react";
 import styles from './styles.module.css'
+import { getFormattedDateFromDt } from '../../shared/lib/formattedDate';
 
 interface IProps {
-  time?: string;
+  time: number;
   city?: string;
   country?: string;
 }
@@ -11,7 +12,7 @@ export const TimeAndLocation: React.FC<IProps> = ({ city, time, country }) => {
   return (
     <div className={styles['time-and-location']}>
       <div className={styles['time']}>
-        <p>{time}</p>
+        <p>{getFormattedDateFromDt(time,'full')}</p>
       </div>
 
       <div className={styles['location']}>

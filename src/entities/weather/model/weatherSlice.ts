@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IWeatherState } from "./types";
-import { fetchForecastWeather, fetchWeather } from "../api";
+import {  fetchWeatherData } from "../api";
 
 const initialState: IWeatherState = {
   city: "Odessa,UA",
@@ -23,33 +23,22 @@ export const weatherSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchWeather.pending, (state) => {
+    builder.addCase(fetchWeatherData.pending, (state) => {
       state.isLoading = true;
       state.isError = false;
     });
-    builder.addCase(fetchWeather.fulfilled, (state, { payload }) => {
-      state.weather = payload;
+    builder.addCase(fetchWeatherData.fulfilled, (state, { payload }) => {
+      if('list' in payload){
+        state.forecastWeather = payload.list
+      }else{
+        state.weather = payload;
+      }
       state.isLoading = false;
       state.isError = false;
     });
-    builder.addCase(fetchWeather.rejected, (state) => {
+    builder.addCase(fetchWeatherData.rejected, (state) => {
       state.isLoading = false;
       state.isError = true;
-    });
-
-    //forecastWeather
-    builder.addCase(fetchForecastWeather.pending, (state) => {
-      state.isLoading = true;
-      state.isError = false;
-    });
-    builder.addCase(fetchForecastWeather.fulfilled, (state, { payload }) => {
-      state.forecastWeather = payload;
-      state.isLoading = false;
-      state.isError = false;
-    });
-    builder.addCase(fetchForecastWeather.rejected, (state) => {
-      state.isError = true;
-      state.isLoading = false;
     });
   },
 });

@@ -2,7 +2,7 @@ export interface IWeatherState {
   city: string;
   units: "metric" | "imperial";
   weather: IWeather | null;
-  forecastWeather: IForecastWeather []  | null;
+  forecastWeather: IForecastWeather[] | null;
   isLoading: boolean;
   isError: boolean;
 }
@@ -52,15 +52,16 @@ export interface IWeather {
 }
 
 export interface IForecastWeather {
-      dt: number;
-      main: {
-        temp: number;
-      };
-      weather: [
-        {
-          icon: string;
-        }
-      ];
-      dt_text: string;
-    
+  dayOfWeek?: string;
+  dt: number;
+  main: {
+    temp: number;
+    temp_max:number;
+  };
+  weather: [
+    {
+      icon: string;
+    }
+  ];
+  dt_txt: string;
 }
