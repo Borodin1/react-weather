@@ -9,7 +9,6 @@ interface IForecast {
 }
 
 export const ForecastWeather: React.FC<IForecast> = ({ title, data }) => {
-  console.log(data)
   return (
     <div className={styles["forecast"]}>
       <div className={styles["forecast-title"]}>
