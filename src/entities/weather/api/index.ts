@@ -3,7 +3,11 @@ import { IForecastWeather, IWeather } from '../model/types';
 import axios, { isAxiosError } from 'axios';
 
 interface IFetchWeather{
-    city:string,
+    city?:string
+    coord?:{
+        lat:number
+        lon:number
+    }
     units:'metric'| 'imperial'
     type:'weather' | 'forecast'
 }
@@ -17,10 +21,10 @@ export const fetchWeatherData = createAsyncThunk<
     { rejectValue: { message: string } }
 >(
     'weather/fetchWeatherData',
-    async ({ city, units, type }, { rejectWithValue }) => {
+    async ({ city, units, type,coord }, { rejectWithValue }) => {
         try {
-            const response = await axios.get(`${API_URL}/${type}?q=${city}&appid=${API_KEY}&units=${units}`);
-
+            const response = await axios.get(`${API_URL}/${type}?${city ? `q=${city}` : `lat=${coord?.lat}&lon=${coord?.lon}`}&appid=${API_KEY}&units=${units}`);
+            console.log(response.data)
             return type === 'forecast' ? { list: response.data.list } : response.data;
         } catch (error) {
             if (isAxiosError(error)) {

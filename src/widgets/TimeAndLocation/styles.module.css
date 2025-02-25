@@ -6,6 +6,7 @@
 
 .time {
   margin: 24px 0px;
+  text-align: center;
 }
 
 .time-and-location .time p {

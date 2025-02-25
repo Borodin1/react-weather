@@ -1,32 +1,17 @@
-import React, { useRef } from "react";
+import React from "react";
 import styles from "./styles.module.css";
 
 import { BiSearch, BiCurrentLocation } from "react-icons/bi";
-import { useAppDispatch } from "../../app/store";
-import { setCity } from "../../entities/weather/model/weatherSlice";
+
+import { useInput } from "./hook";
 
 export const InputsCity: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleSearchCity = () => {
-    if (inputRef.current) {
-      const newCity = inputRef.current.value.trim();
-      if (newCity) {
-        dispatch(setCity(newCity));
-      }
-    }
-  };
-
+  const { inputRef, handleLocation, handleSearchCity } = useInput();
   return (
     <div className={styles["inputs-city"]}>
-      <input
-        type="text"
-        placeholder="search by city..."
-        ref={inputRef}
-      />
+      <input type="text" placeholder="search by city..." ref={inputRef} />
       <BiSearch className={styles["icon"]} onClick={handleSearchCity} />
-      <BiCurrentLocation className={styles["icon"]} />
+      <BiCurrentLocation className={styles["icon"]} onClick={handleLocation} />
     </div>
   );
 };
