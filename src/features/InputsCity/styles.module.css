@@ -6,17 +6,13 @@
 }
 
 .inputs-city input {
-  color: #000000;
-  font-weight: 300;
-  font-size: 20px;
+  color: var(--grey-placeholder);
+  font-weight: var(--text-weight-light);
+  font-size: var(--text-size-l);
   padding: 8px;
   border-radius: 5px;
   border: none;
   width: 100%;
-}
-
-.inputs-city input::placeholder {
-  color: rgb(107 114 128, 1);
 }
 
 .inputs-city input:focus {
@@ -27,7 +23,7 @@
 .icon {
   cursor: pointer;
   margin-left: 16px;
-  color: #fff;
+  color: var(--light-white);
   width: 30px;
   height: 30px;
   transition: transform 0.3s ease-out;

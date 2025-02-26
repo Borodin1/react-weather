@@ -6,7 +6,7 @@
 }
 
 .forecast-title p {
-  font-weight: 500;
+  font-weight: var(--text-weight-medium);
   text-transform: uppercase;
 }
 
@@ -31,8 +31,8 @@ hr {
 }
 
 .forecast-item p {
-  font-weight: 300;
-  font-size: 14px;
+  font-weight: var(--text-weight-light);
+  font-size: var(--text-size-s);
 }
 
 .forecast-item img {
@@ -41,7 +41,7 @@ hr {
 }
 
 .forecast-temp {
-  font-weight: 500 !important;
+  font-weight: var(--text-weight-medium) !important;
 }
 
 @media (min-width: 768px) {

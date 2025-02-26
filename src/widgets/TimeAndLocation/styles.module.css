@@ -10,12 +10,12 @@
 }
 
 .time-and-location .time p {
-  color: #ffffffb3;
-  font-weight: 200;
-  font-size: 20px;
+  color: var(--darkened-white-secondary);
+  font-weight: var(--text-weight-extra-light);
+  font-size: var(--text-size-l);
 }
 
 .time-and-location .location p {
-  font-weight: 500;
-  font-size: 30px;
+  font-weight: var(--text-weight-medium);
+  font-size: var(--text-size-xl);
 }

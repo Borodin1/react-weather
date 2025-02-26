@@ -2,19 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25%;
 }
 
 .units-city span {
   margin: 0 4px;
-  font-weight: 500;
+  font-weight: var(--text-weight-medium);
 }
 
 .units-city button {
   background-color: transparent;
   border: none;
-  font-size: 24px;
-  color: #fff;
+  font-size: var(--text-size-xl);
+  color: var(--light-white);
   cursor: pointer;
   transition: transform 0.3s ease-out;
 }

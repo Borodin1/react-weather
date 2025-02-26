@@ -1,6 +1,9 @@
 .content {
-  background: linear-gradient(to right, #06b6d4, #1d4ed8);
-  background-image: linear-gradient(to bottom right, #06b6d4, #1d4ed8);
+  background: linear-gradient(
+    to right,
+    var(--secondary-color),
+    var(--primary-color)
+  );
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   padding: 20px 56px 48px 56px;
   margin-left: auto;
@@ -13,8 +16,8 @@
   bottom: 0;
   right: 0;
   left: 0;
-  font-weight: 300;
-  color: rgb(255 255 255 / 0.7);
+  font-weight: var(--text-weight-light);
+  color: var(--darkened-white);
   text-align: center;
   padding-bottom: 8px;
 }

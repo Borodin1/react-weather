@@ -1,0 +1,27 @@
+:root {
+  /* Background Colors */
+  --primary-color: #1d4ed8;
+  --secondary-color: #06b6d4;
+
+  /* Text Colors */
+  --light-title: rgb(103 232 249 / 1);
+  --grey-placeholder: rgb(107 114 128/1);
+  --light-white: #fff;
+  --darkened-white: rgb(255 255 255 / 0.7);
+  --darkened-white-secondary: #ffffffb3;
+  --dark-input: #000000;
+
+  /* Text Font Properties */
+  --text-size-xxl: 48px;
+  --text-size-xl: 30px;
+  --text-size-l: 20px;
+  --text-size-m: 18px;
+  --text-size-s: 14px;
+
+  --text-weight-medium: 500;
+  --text-weight-light: 300;
+  --text-weight-extra-light: 200;
+
+  /* Button */
+  --button-color-hover: rgba(55, 65, 81, 0.2);
+}
